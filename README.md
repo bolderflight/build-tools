@@ -46,5 +46,5 @@ To use our build environment:
 
 6. If you would like to shut down the virtual machine, the command is:
     ```shell
-    vagrant halt
+    $ vagrant halt
     ```
