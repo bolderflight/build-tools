@@ -29,7 +29,7 @@ rm -r gcc-arm-none-eabi-10-2020-q4-major
 apt-get install -y autoconf automake libtool curl make g++ unzip
 wget https://github.com/protocolbuffers/protobuf/releases/download/v3.14.0/protobuf-all-3.14.0.tar.gz
 tar -xvf protobuf-all-3.14.0.tar.gz
-cd protobuf-all-3.14.0
+cd protobuf-3.14.0
 ./configure
 make
 make check
@@ -38,6 +38,7 @@ ldconfig
 # Protocol Buffers python language packages (required for nanopb)
 apt-get install -y python3-dev
 apt-get install -y python3-setuptools
+apt-get install -y python3-pip
 cd python
 python3 setup.py build
 python3 setup.py test
@@ -46,7 +47,8 @@ python3 setup.py test --cpp_implementation
 python3 setup.py install
 cd ../..
 rm protobuf-all-3.14.0.tar.gz
-rm -r protobuf-all-3.14.0
+rm -r protobuf-3.14.0
+pip3 install protobuf grpcio-tools
 # Install nanopb
 wget https://github.com/nanopb/nanopb/archive/0.4.4.tar.gz
 tar -xvf 0.4.4.tar.gz
