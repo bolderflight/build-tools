@@ -27,7 +27,7 @@ rm gcc-arm-none-eabi-10-2020-q4-major-x86_64-linux.tar.bz2
 rm -r gcc-arm-none-eabi-10-2020-q4-major
 # Install Protocol Buffers
 apt-get install -y autoconf automake libtool curl make g++ unzip
-wget https://github.com/protocolbuffers/protobuf/releases/download/v3.13.0/protobuf-all-3.14.0.tar.gz
+wget https://github.com/protocolbuffers/protobuf/releases/download/v3.14.0/protobuf-all-3.14.0.tar.gz
 tar -xvf protobuf-all-3.14.0.tar.gz
 cd protobuf-all-3.14.0
 ./configure
