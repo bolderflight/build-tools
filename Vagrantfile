@@ -10,7 +10,7 @@ Vagrant.configure("2") do |config|
     vb.cpus = 2
   end
   # Folder Settings
-  config.vm.synced_folder "./build", "/home/vagrant/work"
+  config.vm.synced_folder "./build", "/home/vagrant/work", create: true
   # Provision Settings
   config.vm.provision "shell", path: "bootstrap.sh"
 end
