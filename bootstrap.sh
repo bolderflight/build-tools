@@ -1,61 +1,39 @@
 # Update packages
 apt-get update
 # Upgrade packages
-apt-get upgrade
+apt-get upgrade -y
 # Install git
 apt-get install -y git
 # Install build essential
 apt-get install -y build-essential
 # Install CMake
 apt-get install -y libssl-dev
-wget https://github.com/Kitware/CMake/releases/download/v3.19.4/cmake-3.19.4.tar.gz
-tar -xvf cmake-3.19.4.tar.gz
-cd cmake-3.19.4
-./bootstrap
-make
-make install
-cd ..
-rm cmake-3.19.4.tar.gz
-rm -r cmake-3.19.4
+apt-get install -y cmake
 # Install gcc-arm-none-eabi
-wget https://developer.arm.com/-/media/Files/downloads/gnu-rm/10-2020q4/gcc-arm-none-eabi-10-2020-q4-major-x86_64-linux.tar.bz2
-tar -xvf gcc-arm-none-eabi-10-2020-q4-major-x86_64-linux.tar.bz2
-cd gcc-arm-none-eabi-10-2020-q4-major
+wget https://developer.arm.com/-/media/Files/downloads/gnu-rm/10.3-2021.07/gcc-arm-none-eabi-10.3-2021.07-x86_64-linux.tar.bz2
+tar -xvf gcc-arm-none-eabi-10.3-2021.07-x86_64-linux.tar.bz2
+cd gcc-arm-none-eabi-10.3-2021.07
 cp -r * /usr/local
 cd ..
-rm gcc-arm-none-eabi-10-2020-q4-major-x86_64-linux.tar.bz2
-rm -r gcc-arm-none-eabi-10-2020-q4-major
+rm gcc-arm-none-eabi-10.3-2021.07-x86_64-linux.tar.bz2
+rm -r gcc-arm-none-eabi-10.3-2021.07
 # Install Protocol Buffers
-apt-get install -y autoconf automake libtool curl make g++ unzip
-wget https://github.com/protocolbuffers/protobuf/releases/download/v3.14.0/protobuf-all-3.14.0.tar.gz
-tar -xvf protobuf-all-3.14.0.tar.gz
-cd protobuf-3.14.0
-./configure
-make
-make check
-make install
-ldconfig
-# Protocol Buffers python language packages (required for nanopb)
+apt-get install -y libprotobuf-dev
 apt-get install -y python3-dev
-apt-get install -y python3-setuptools
 apt-get install -y python3-pip
-cd python
-python3 setup.py build
-python3 setup.py test
-python3 setup.py build --cpp_implementation
-python3 setup.py test --cpp_implementation
-python3 setup.py install
+pip install setuptools protobuf grpcio-tools
+# Install cpplint
+pip install cpplint
+# Make a directory for BFS build tools
+mkdir /usr/local/bfs
+# Copy nanopb into build tools
+git clone https://github.com/bolderflight/nanopb.git /usr/local/bfs
+# Copy the rest of our build tools
+git clone https://github.com/bolderflight/build-tools.git
+cd build-tools/tools
+cp -r cmake /usr/local/bfs
+cp -r ld /usr/local/bfs
+cp -r lib /usr/local/bfs
+cp -r tools /usr/local/bfs
 cd ../..
-rm protobuf-all-3.14.0.tar.gz
-rm -r protobuf-3.14.0
-pip3 install protobuf grpcio-tools
-# Install nanopb
-wget https://github.com/nanopb/nanopb/archive/0.4.4.tar.gz
-tar -xvf 0.4.4.tar.gz
-cp -r nanopb-0.4.4 /usr/local/nanopb
-rm 0.4.4.tar.gz
-rm -r nanopb-0.4.4
-# Install cpplint.py
-wget https://raw.githubusercontent.com/bolderflight/build-tools/main/cpplint.py
-chmod 777 cpplint.py
-mv cpplint.py /usr/bin
+rm -r build-tools
