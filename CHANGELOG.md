@@ -1,5 +1,8 @@
 # Changelog
 
+## v2.0.1
+- Fixed bug with nanopb install location
+
 ## v2.0.0
 - Updated to use WSL or Linux instead of VirtualBox, was having a lot of reliability issues with Vagrant and VirtualBox.
 - Speed up using binary packages, where able, instead of building from source.
