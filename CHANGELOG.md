@@ -1,5 +1,8 @@
 # Changelog
 
+## v2.0.2
+- Updated build tools to simplify
+
 ## v2.0.1
 - Fixed bug with nanopb install location
 
