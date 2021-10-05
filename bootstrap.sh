@@ -27,13 +27,4 @@ pip install cpplint
 # Make a directory for BFS build tools
 mkdir /usr/local/bfs
 # Copy nanopb into build tools
-git clone https://github.com/bolderflight/nanopb.git /usr/local/bfs/nanopb
-# Copy the rest of our build tools
-git clone https://github.com/bolderflight/build-tools.git
-cd build-tools/tools
-cp -r cmake /usr/local/bfs
-cp -r ld /usr/local/bfs
-cp -r lib /usr/local/bfs
-cp -r tools /usr/local/bfs
-cd ../..
-rm -r build-tools
+git clone https://github.com/bolderflight/nanopb.git /usr/local/nanopb
