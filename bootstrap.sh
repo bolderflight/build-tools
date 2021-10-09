@@ -8,7 +8,15 @@ apt-get install -y git
 apt-get install -y build-essential
 # Install CMake
 apt-get install -y libssl-dev
-apt-get install -y cmake
+wget https://github.com/Kitware/CMake/releases/download/v3.21.3/cmake-3.21.3.tar.gz
+tar -xvf cmake-3.21.3.tar.gz
+cd cmake-3.21.3
+./bootstrap
+make
+make install
+cd ..
+rm cmake-3.21.3.tar.gz
+rm -r cmake-3.21.3
 # Install gcc-arm-none-eabi
 wget https://developer.arm.com/-/media/Files/downloads/gnu-rm/10.3-2021.07/gcc-arm-none-eabi-10.3-2021.07-x86_64-linux.tar.bz2
 tar -xvf gcc-arm-none-eabi-10.3-2021.07-x86_64-linux.tar.bz2
@@ -18,13 +26,27 @@ cd ..
 rm gcc-arm-none-eabi-10.3-2021.07-x86_64-linux.tar.bz2
 rm -r gcc-arm-none-eabi-10.3-2021.07
 # Install Protocol Buffers
-apt-get install -y libprotobuf-dev
-apt-get install -y python3-dev
-apt-get install -y python3-pip
-pip install setuptools protobuf grpcio-tools
+apt-get install -y autoconf automake libtool curl make g++ unzip
+wget https://github.com/protocolbuffers/protobuf/releases/download/v3.18.1/protobuf-all-3.18.1.tar.gz
+tar -xvf protobuf-all-3.18.1.tar.gz
+cd protobuf-3.18.1
+./configure
+make
+make check
+make install
+ldconfig
+apt-get install -y python3-dev python3-pip python3-setuptools
+cd python
+python3 setup.py build
+python3 setup.py test
+python3 setup.py build --cpp_implementation
+python3 setup.py test --cpp_implementation
+python3 setup.py install
+cd ../..
+rm protobuf-all-3.18.1.tar.gz
+rm -r protobuf-3.18.1
+pip3 install protobuf grpcio-tools
+# nanopb
+git clone https://github.com/bolderflight/nanopb.git /usr/local/nanopb
 # Install cpplint
 pip install cpplint
-# Make a directory for BFS build tools
-mkdir /usr/local/bfs
-# Copy nanopb into build tools
-git clone https://github.com/bolderflight/nanopb.git /usr/local/nanopb
