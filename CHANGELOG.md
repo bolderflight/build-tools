@@ -1,5 +1,8 @@
 # Changelog
 
+## v2.0.3
+- Had some issues building the mat_converter, due to a CMake version mis-match, so went back to building CMake and Protobuf from source
+
 ## v2.0.2
 - Updated build tools to simplify
 
