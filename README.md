@@ -15,3 +15,14 @@ For initial setup of the development environment on your machine:
 2. Download or clone this repository, navigate to it in your WSL or Linux terminal and run *bootstrap.sh* with *sudo* permissions.
 
 3. After installation, you may delete this repository
+
+# Troubleshooting
+
+If this is installed in WSL and you're having issues running git on the Windows drives, you can edit or create */etc/wsl.conf* in WSL and add:
+
+```
+[automount]
+options = "metadata"
+```
+
+Reboot Windows. All of the operations like git, mkdir, etc should now work fine in the Windows drives.

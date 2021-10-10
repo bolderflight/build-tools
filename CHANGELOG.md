@@ -1,5 +1,8 @@
 # Changelog
 
+## v2.0.4
+- Added some information on getting WSL to work on the Window's drives
+
 ## v2.0.3
 - Had some issues building the mat_converter, due to a CMake version mis-match, so went back to building CMake and Protobuf from source
 
