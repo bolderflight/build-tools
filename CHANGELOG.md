@@ -1,5 +1,8 @@
 # Changelog
 
+## v2.0.5
+- Updated README for Linux
+
 ## v2.0.4
 - Added some information on getting WSL to work on the Window's drives
 
