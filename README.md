@@ -18,6 +18,8 @@ For initial setup of the development environment on your machine:
 
 # Troubleshooting
 
+## WSL
+
 If this is installed in WSL and you're having issues running git on the Windows drives, you can edit or create */etc/wsl.conf* in WSL and add:
 
 ```
@@ -26,3 +28,11 @@ options = "metadata"
 ```
 
 Reboot Windows. All of the operations like git, mkdir, etc should now work fine in the Windows drives.
+
+## Linux
+
+You may need to download udev rules to enable uploading code to the microcontrollers. Donwload the [udev rules](https://www.pjrc.com/teensy/00-teensy.rules) and copy the file to */etc/udev/rules.d*
+
+```
+sudo cp 00-teensy.rules /etc/udev/rules.d/
+```
