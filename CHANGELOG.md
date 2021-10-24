@@ -1,5 +1,8 @@
 # Changelog
 
+## v2.0.6
+- Updated to install g++10 and set as default compiler (needed for c++20)
+
 ## v2.0.5
 - Updated README for Linux
 
