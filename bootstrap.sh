@@ -6,6 +6,17 @@ apt-get upgrade -y
 apt-get install -y git
 # Install build essential
 apt-get install -y build-essential
+# Install g++10
+apt-get install g++-10
+# Update to make g++10 the default
+update-alternatives --remove-all gcc 
+update-alternatives --remove-all g++
+update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 10
+update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-10 20
+update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-9 10
+update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-10 20
+update-alternatives --set cc /usr/bin/gcc
+update-alternatives --set c++ /usr/bin/g++
 # Install CMake
 apt-get install -y libssl-dev
 wget https://github.com/Kitware/CMake/releases/download/v3.21.3/cmake-3.21.3.tar.gz
