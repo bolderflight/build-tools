@@ -1,4 +1,6 @@
-# build-tools
+![Bolder Flight Systems Logo](img/logo-words_75.png)
+
+# Build Tools
 Tools for compiling and uploading software.
    * [License](LICENSE.md)
    * [Changelog](CHANGELOG.md)
@@ -20,7 +22,7 @@ For initial setup of the development environment on your machine:
 
 ## WSL
 
-If this is installed in WSL and you're having issues running git on the Windows drives, you can edit or create */etc/wsl.conf* in WSL and add:
+If this is installed in WSL and you're having issues running git on the Windows file system, you can edit or create */etc/wsl.conf* in WSL and add:
 
 ```
 [automount]
