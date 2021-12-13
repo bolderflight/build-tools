@@ -8,6 +8,8 @@ apt-get install -y git
 apt-get install -y build-essential
 # Install g++10
 apt-get install g++-10
+# Install libusb-dev
+apt-get install libusb-dev
 # Update to make g++10 the default
 update-alternatives --remove-all gcc 
 update-alternatives --remove-all g++
