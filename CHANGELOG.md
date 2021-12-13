@@ -1,5 +1,8 @@
 # Changelog
 
+## v2.0.7
+- Updated to install libusb-dev, which is required for the Teensy CLI to work on Ubuntu
+
 ## v2.0.6
 - Updated to install g++10 and set as default compiler (needed for c++20)
 
