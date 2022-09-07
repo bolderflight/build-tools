@@ -1,5 +1,8 @@
 # Changelog
 
+## v3.0.0
+- Updated to include link to Docker container and updated Ubuntu / WSL to Ubuntu 22.04, which simplifies and speeds up the configuration significantly
+
 ## v2.0.7
 - Updated to install libusb-dev, which is required for the Teensy CLI to work on Ubuntu
 
