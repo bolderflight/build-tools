@@ -1,5 +1,8 @@
 # Changelog
 
+## v4.0.0
+- Reverted back after having issues with docker and packaged tools instead of building from source.
+
 ## v3.0.0
 - Updated to include link to Docker container and updated Ubuntu / WSL to Ubuntu 22.04, which simplifies and speeds up the configuration significantly
 
